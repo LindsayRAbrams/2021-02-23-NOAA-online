@@ -43,8 +43,9 @@ flavor: "python"
 # Most workshops don't use extra pages. More information about extra
 # pages are included in the README:
 # https://github.com/carpentries/workshop-template#creating-extra-pages
-title: "Software Carpentry&#13;&#10;Python & git/GitHub"
-
+title: |-
+  Software Carpentry:
+  Python & git/GitHub
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
