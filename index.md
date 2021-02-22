@@ -290,7 +290,6 @@ e.g., '2015-06-10-esu'.
 Note we also have a CodiMD (the open-source version of HackMD)
 available at https://codimd.carpentries.org
 {% endcomment %}
-<h2 id="collaborative_notes">Collaborative Notes</h2>
 
 <p>
 We will use this <a href="{{ https://docs.google.com/document/d/1U5w_GaGQD9zTII60OsNtFXXUYvI3LQUJF0tfSoBj1qw/edit }}">collaborative document</a> for chatting, taking notes, and sharing URLs and bits of code.
