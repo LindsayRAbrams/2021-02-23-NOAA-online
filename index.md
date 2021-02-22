@@ -16,7 +16,7 @@ enddate: 2021-02-26        # machine-readable end date for the workshop in YYYY-
 instructor: ["Camilla Bressan", "Ian Carroll", "Mike Trizna"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
 helper: ["Cristina Urizar", "Julia Engdahl"]     # boxed, comma-separated list of helpers' names, like ["Marlyn Wescoff", "Fran Bilas", "Ruth Lichterman"]
 email: ["lindsay.abrams@noaa.gov"]    # boxed, comma-separated list of contact email addresses for the host, lead instructor, or whoever else is handling questions, like ["marlyn.wescoff@example.org", "fran.bilas@example.org", "ruth.lichterman@example.org"]
-collaborative_notes:  # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
+collaborative_notes:  "https://docs.google.com/document/d/1U5w_GaGQD9zTII60OsNtFXXUYvI3LQUJF0tfSoBj1qw/edit" # optional: URL for the workshop collaborative notes, e.g. an Etherpad or Google Docs document (e.g., https://pad.carpentries.org/2015-01-01-euphoria)
 eventbrite:           # optional: alphanumeric key for Eventbrite registration, e.g., "1234567890AB" (if Eventbrite is being used)
 ---
 
@@ -292,7 +292,7 @@ available at https://codimd.carpentries.org
 {% endcomment %}
 
 <p>
-We will use this <a href="{{ https://docs.google.com/document/d/1U5w_GaGQD9zTII60OsNtFXXUYvI3LQUJF0tfSoBj1qw/edit }}">collaborative document</a> for chatting, taking notes, and sharing URLs and bits of code.
+We will use this <a href="{{ page.collaboartive_notes }}">collaborative document</a> for chatting, taking notes, and sharing URLs and bits of code.
 </p>
 <hr/>
 
