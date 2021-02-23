@@ -1,0 +1,445 @@
+OCIO-L30810:~ teaching$ pwd
+/Users/teaching
+OCIO-L30810:~ teaching$ git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout    Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Reapply commits on top of another base tip
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+OCIO-L30810:~ teaching$ git config --global user.name "MikeTrizna"
+OCIO-L30810:~ teaching$ git config --list
+credential.helper=osxkeychain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+user.name=MikeTrizna
+user.email=triznam@si.edu
+OCIO-L30810:~ teaching$ git config --global user.email "triznam@si.edu"
+OCIO-L30810:~ teaching$ git config --global core.autocrlf input
+OCIO-L30810:~ teaching$ git config --list
+credential.helper=osxkeychain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+user.name=MikeTrizna
+user.email=triznam@si.edu
+core.autocrlf=input
+OCIO-L30810:~ teaching$ cd ~/Desktop/
+OCIO-L30810:Desktop teaching$ mkdir planets
+OCIO-L30810:Desktop teaching$ cd planets
+OCIO-L30810:planets teaching$ pwd
+/Users/teaching/Desktop/planets
+OCIO-L30810:planets teaching$ git init
+Initialized empty Git repository in /Users/teaching/Desktop/planets/.git/
+OCIO-L30810:planets teaching$ ls
+OCIO-L30810:planets teaching$ ls -a
+.	..	.git
+OCIO-L30810:planets teaching$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+OCIO-L30810:planets teaching$ nano mars.txt
+OCIO-L30810:planets teaching$ ls
+mars.txt
+OCIO-L30810:planets teaching$ cat mars.txt
+Cold and dry, but everything is my favorite color
+OCIO-L30810:planets teaching$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	mars.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+OCIO-L30810:planets teaching$ git add mars.txt
+OCIO-L30810:planets teaching$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+	new file:   mars.txt
+
+OCIO-L30810:planets teaching$ git commit -m "Start notes on Mars as a base"
+[master (root-commit) 8342794] Start notes on Mars as a base
+ 1 file changed, 1 insertion(+)
+ create mode 100644 mars.txt
+OCIO-L30810:planets teaching$ git status
+On branch master
+nothing to commit, working tree clean
+OCIO-L30810:planets teaching$ git log
+commit 8342794e708ede0b11df6b3f422e89ad51b8e91b (HEAD -> master)
+Author: MikeTrizna <triznam@si.edu>
+Date:   Tue Feb 23 14:10:27 2021 -0500
+
+    Start notes on Mars as a base
+OCIO-L30810:planets teaching$ 
+OCIO-L30810:planets teaching$ nano mars.txt
+OCIO-L30810:planets teaching$ ls
+mars.txt
+OCIO-L30810:planets teaching$ nano mars.txt
+OCIO-L30810:planets teaching$ cat mars.txt
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+OCIO-L30810:planets teaching$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   mars.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+OCIO-L30810:planets teaching$ git diff
+diff --git a/mars.txt b/mars.txt
+index df0654a..315bf3a 100644
+--- a/mars.txt
++++ b/mars.txt
+@@ -1 +1,2 @@
+ Cold and dry, but everything is my favorite color
++The two moons may be a problem for Wolfman
+OCIO-L30810:planets teaching$ git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+On branch master
+Changes not staged for commit:
+	modified:   mars.txt
+
+no changes added to commit
+OCIO-L30810:planets teaching$ git add mars.txt
+OCIO-L30810:planets teaching$ git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+[master 8b69645] Add concerns about effects of Mars' moons on Wolfman
+ 1 file changed, 1 insertion(+)
+OCIO-L30810:planets teaching$ nano mars.txt
+OCIO-L30810:planets teaching$ cat mars.txt
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+OCIO-L30810:planets teaching$ git diff
+diff --git a/mars.txt b/mars.txt
+index 315bf3a..b36abfd 100644
+--- a/mars.txt
++++ b/mars.txt
+@@ -1,2 +1,3 @@
+ Cold and dry, but everything is my favorite color
+ The two moons may be a problem for Wolfman
++But the Mummy will appreciate the lack of humidity
+OCIO-L30810:planets teaching$ git add mars.txt
+OCIO-L30810:planets teaching$ git diff
+OCIO-L30810:planets teaching$ git diff --staged
+diff --git a/mars.txt b/mars.txt
+index 315bf3a..b36abfd 100644
+--- a/mars.txt
++++ b/mars.txt
+@@ -1,2 +1,3 @@
+ Cold and dry, but everything is my favorite color
+ The two moons may be a problem for Wolfman
++But the Mummy will appreciate the lack of humidity
+OCIO-L30810:planets teaching$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   mars.txt
+
+OCIO-L30810:planets teaching$ git commit -m "Discuss concerns about Mars' climate for Mummy"
+[master 6b06d64] Discuss concerns about Mars' climate for Mummy
+ 1 file changed, 1 insertion(+)
+OCIO-L30810:planets teaching$ git status
+On branch master
+nothing to commit, working tree clean
+OCIO-L30810:planets teaching$ git log
+commit 6b06d640de050a1773d56a699fdc6c60923a3a7f (HEAD -> master)
+Author: MikeTrizna <triznam@si.edu>
+Date:   Tue Feb 23 14:50:47 2021 -0500
+
+    Discuss concerns about Mars' climate for Mummy
+
+commit 8b6964514092b0260c6bbbaba08a7b7eeb13593d
+Author: MikeTrizna <triznam@si.edu>
+Date:   Tue Feb 23 14:40:12 2021 -0500
+
+    Add concerns about effects of Mars' moons on Wolfman
+
+commit 8342794e708ede0b11df6b3f422e89ad51b8e91b
+Author: MikeTrizna <triznam@si.edu>
+Date:   Tue Feb 23 14:10:27 2021 -0500
+
+    Start notes on Mars as a base
+OCIO-L30810:planets teaching$ git log -1
+commit 6b06d640de050a1773d56a699fdc6c60923a3a7f (HEAD -> master)
+Author: MikeTrizna <triznam@si.edu>
+Date:   Tue Feb 23 14:50:47 2021 -0500
+
+    Discuss concerns about Mars' climate for Mummy
+OCIO-L30810:planets teaching$ git log -2
+commit 6b06d640de050a1773d56a699fdc6c60923a3a7f (HEAD -> master)
+Author: MikeTrizna <triznam@si.edu>
+Date:   Tue Feb 23 14:50:47 2021 -0500
+
+    Discuss concerns about Mars' climate for Mummy
+
+commit 8b6964514092b0260c6bbbaba08a7b7eeb13593d
+Author: MikeTrizna <triznam@si.edu>
+Date:   Tue Feb 23 14:40:12 2021 -0500
+
+    Add concerns about effects of Mars' moons on Wolfman
+OCIO-L30810:planets teaching$ git log --oneline
+6b06d64 (HEAD -> master) Discuss concerns about Mars' climate for Mummy
+8b69645 Add concerns about effects of Mars' moons on Wolfman
+8342794 Start notes on Mars as a base
+OCIO-L30810:planets teaching$ git log -h
+usage: git log [<options>] [<revision-range>] [[--] <path>...]
+   or: git show [<options>] <object>...
+
+    -q, --quiet           suppress diff output
+    --source              show source
+    --use-mailmap         Use mail map file
+    --decorate-refs <pattern>
+                          only decorate refs that match <pattern>
+    --decorate-refs-exclude <pattern>
+                          do not decorate refs that match <pattern>
+    --decorate[=...]      decorate options
+    -L <n,m:file>         Process line range n,m in file, counting from 1
+
+OCIO-L30810:planets teaching$ mkdir spaceships
+OCIO-L30810:planets teaching$ ls
+mars.txt	spaceships
+OCIO-L30810:planets teaching$ git status
+On branch master
+nothing to commit, working tree clean
+OCIO-L30810:planets teaching$ git add spaceships
+OCIO-L30810:planets teaching$ git status
+On branch master
+nothing to commit, working tree clean
+OCIO-L30810:planets teaching$ git log --oneline
+6b06d64 (HEAD -> master) Discuss concerns about Mars' climate for Mummy
+8b69645 Add concerns about effects of Mars' moons on Wolfman
+8342794 Start notes on Mars as a base
+OCIO-L30810:planets teaching$ git checkout 8342794 mars.txt
+OCIO-L30810:planets teaching$ cat mars.txt
+Cold and dry, but everything is my favorite color
+OCIO-L30810:planets teaching$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   mars.txt
+
+OCIO-L30810:planets teaching$ git checkout HEAD mars.txt
+OCIO-L30810:planets teaching$ cat mars.txt
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+OCIO-L30810:planets teaching$ git status
+On branch master
+nothing to commit, working tree clean
+OCIO-L30810:planets teaching$ cat mars.txt
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+OCIO-L30810:planets teaching$ pwd
+/Users/teaching/Desktop/planets
+OCIO-L30810:planets teaching$ ls
+mars.txt	spaceships
+OCIO-L30810:planets teaching$ mkdir results
+OCIO-L30810:planets teaching$ ls
+OCIO-L30810:planets teaching$ touch a.dat b.dat c.dat results/a.out results/b.out
+OCIO-L30810:planets teaching$ ls
+a.dat		c.dat		results
+b.dat		mars.txt	spaceships
+OCIO-L30810:planets teaching$ tree .
+.
+├── a.dat
+├── b.dat
+├── c.dat
+├── mars.txt
+├── results
+│   ├── a.out
+│   └── b.out
+└── spaceships
+
+2 directories, 6 files
+OCIO-L30810:planets teaching$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	a.dat
+	b.dat
+	c.dat
+	results/
+
+nothing added to commit but untracked files present (use "git add" to track)
+OCIO-L30810:planets teaching$ nano .gitignore
+OCIO-L30810:planets teaching$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+OCIO-L30810:planets teaching$ cat .gitignore
+*.dat
+results/
+OCIO-L30810:planets teaching$ git add .gitignore
+OCIO-L30810:planets teaching$ git commit -m "Ignore data files and the results folder"
+[master 95a3a2d] Ignore data files and the results folder
+ 1 file changed, 2 insertions(+)
+ create mode 100644 .gitignore
+OCIO-L30810:planets teaching$ git status
+On branch master
+nothing to commit, working tree clean
+OCIO-L30810:planets teaching$ ls
+a.dat		c.dat		results
+b.dat		mars.txt	spaceships
+OCIO-L30810:planets teaching$ touch d.dat
+OCIO-L30810:planets teaching$ git status
+On branch master
+nothing to commit, working tree clean
+OCIO-L30810:planets teaching$ git add d.dat
+The following paths are ignored by one of your .gitignore files:
+d.dat
+Use -f if you really want to add them.
+OCIO-L30810:planets teaching$ git add -f d.dat
+OCIO-L30810:planets teaching$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   d.dat
+
+OCIO-L30810:planets teaching$ git commit -m "I really needed this one .dat file"
+[master edcbd42] I really needed this one .dat file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 d.dat
+OCIO-L30810:planets teaching$ git log --oneline
+edcbd42 (HEAD -> master) I really needed this one .dat file
+95a3a2d Ignore data files and the results folder
+6b06d64 Discuss concerns about Mars' climate for Mummy
+8b69645 Add concerns about effects of Mars' moons on Wolfman
+8342794 Start notes on Mars as a base
+OCIO-L30810:planets teaching$ pwd
+OCIO-L30810:planets teaching$ git remote add origin https://github.com/MikeTrizna/planets.git
+OCIO-L30810:planets teaching$ git remote -v
+origin	https://github.com/MikeTrizna/planets.git (fetch)
+origin	https://github.com/MikeTrizna/planets.git (push)
+OCIO-L30810:planets teaching$ git push origin master
+Username for 'https://github.com': MikeTrizna
+Password for 'https://MikeTrizna@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/MikeTrizna/planets.git/'
+OCIO-L30810:planets teaching$ git push origin master
+Username for 'https://github.com': MikeTrizna
+Password for 'https://MikeTrizna@github.com': 
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/MikeTrizna/planets.git/'
+OCIO-L30810:planets teaching$ git push origin master
+Username for 'https://github.com': MikeTrizna
+Password for 'https://MikeTrizna@github.com': 
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (15/15), 1.35 KiB | 692.00 KiB/s, done.
+Total 15 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), done.
+To https://github.com/MikeTrizna/planets.git
+ * [new branch]      master -> master
+OCIO-L30810:planets teaching$ ls
+a.dat		c.dat		mars.txt	spaceships
+b.dat		d.dat		results
+OCIO-L30810:planets teaching$ git pull origin master
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/MikeTrizna/planets
+ * branch            master     -> FETCH_HEAD
+   edcbd42..96a68dc  master     -> origin/master
+Updating edcbd42..96a68dc
+Fast-forward
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 README.md
+OCIO-L30810:planets teaching$ ls
+README.md	b.dat		d.dat		results
+a.dat		c.dat		mars.txt	spaceships
+OCIO-L30810:planets teaching$ pwd
+/Users/teaching/Desktop/planets
+OCIO-L30810:planets teaching$ cd ~/Desktop
+OCIO-L30810:Desktop teaching$ git clone https://github.com/tyannefaulkes/planets.git tyanne-planets
+Cloning into 'tyanne-planets'...
+remote: Enumerating objects: 15, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (8/8), done.
+remote: Total 15 (delta 2), reused 12 (delta 2), pack-reused 0
+Unpacking objects: 100% (15/15), done.
+OCIO-L30810:Desktop teaching$ pwd
+/Users/teaching/Desktop
+OCIO-L30810:Desktop teaching$ cd tyanne-planets/
+OCIO-L30810:tyanne-planets teaching$ nano pluto.txt
+OCIO-L30810:tyanne-planets teaching$ git add pluto.txt 
+OCIO-L30810:tyanne-planets teaching$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   pluto.txt
+
+OCIO-L30810:tyanne-planets teaching$ git commit -m "Add notes about Pluto"
+[master 6eddc30] Add notes about Pluto
+ 1 file changed, 1 insertion(+)
+ create mode 100644 pluto.txt
+OCIO-L30810:tyanne-planets teaching$ git push origin master
+remote: Permission to tyannefaulkes/planets.git denied to MikeTrizna.
+fatal: unable to access 'https://github.com/tyannefaulkes/planets.git/': The requested URL returned error: 403
+OCIO-L30810:tyanne-planets teaching$ 
